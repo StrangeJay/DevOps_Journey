@@ -161,6 +161,11 @@ We’re defining this user’s password as **mysqltrial**
 ![Screenshot (188)](https://user-images.githubusercontent.com/105195327/205440336-c8e8b5e9-6b61-407c-8842-2c7ee29cbc24.png)  
  
   
- 
+*I am choosing to continue without enabling. I chose No, and continued the other processes.* 
+
+- For the rest of the questions, press Y and hit the ENTER key at each prompt. 
+*This will prompt you to change the root password, remove some anonymous users and the test database, 
+disable remote root logins, and load these new rules so that MySQL immediately respects the changes you have made.*  
+- When you’re finished, test if you’re able to log in to the MySQL console by typing: "sudo mysql -p"
 
 
