@@ -166,6 +166,21 @@ We’re defining this user’s password as **mysqltrial**
 - For the rest of the questions, press Y and hit the ENTER key at each prompt. 
 *This will prompt you to change the root password, remove some anonymous users and the test database, 
 disable remote root logins, and load these new rules so that MySQL immediately respects the changes you have made.*  
-- When you’re finished, test if you’re able to log in to the MySQL console by typing: "sudo mysql -p"
 
+![Screenshot (189)](https://user-images.githubusercontent.com/105195327/205440668-3739e71b-d925-4d83-a69b-90c7439d32be.png)  
+
+ 
+- When you’re finished, test if you’re able to log in to the MySQL console by typing: "sudo mysql -p" 
+![Screenshot (190)](https://user-images.githubusercontent.com/105195327/205440725-153c3d57-aa42-42c3-b2c3-04ae2b861ecd.png)  
+ 
+ 
+*Notice the -p flag in this command, which will prompt you for the password used after changing the root user password.* 
+To exit the MySQL console, type:
+mysql> exit
+
+*** 
+*** 
+
+## **Step3**
+### Installing PHP 
 
