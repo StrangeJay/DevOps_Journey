@@ -281,11 +281,16 @@ Your new website is now active, but the web root /var/www/projectlamp is still e
 
 sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
 Now go to your browser and try to open your website URL using your public IP address. 
-
+![Screenshot (201)](https://user-images.githubusercontent.com/105195327/205461002-a3cbea40-c293-40a0-853d-4fbd4c099aec.png)  
+ 
+  
 If you see the text from ‘echo’ command you wrote to index.html file, then it means your Apache virtual host is working as expected.
 In the output you will see your server’s public hostname (DNS name) and public IP address. 
  
-You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
+*You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.*  
+ 
+  
+
 
   
  
