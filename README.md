@@ -1,5 +1,9 @@
 # DevOps_Journey
 
+# **WEB STACK IMPLEMENTATION (LAMP STACK) IN AWS** 
+*LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)*
+
+
 ## **Step0:** Preparing Prerequisites
 
 **Launching an EC2 instance**
@@ -183,4 +187,109 @@ mysql> exit
 
 ## **Step3**
 ### Installing PHP 
+
+You have Apache installed to serve our content, and MySQL installed to store and manage your data. PHP is the component of your setup that will process code to display dynamic content to the end user. 
+In addition to the php package, you’ll need php-mysql, *a PHP module that allows PHP to communicate with MySQL-based databases.* You’ll also need libapache2-mod-php to enable Apache to handle PHP files. *Core PHP packages will automatically be installed as dependencies.* 
+To install these 3 packages at once, run: "sudo apt install php libapache2-mod-php php-mysql"
+
+![Screenshot (191)](https://user-images.githubusercontent.com/105195327/205458912-d7e52c90-8cec-49df-b47e-0d0aa067c07f.png)  
+ 
+  
+ Once installation is finished, type "php -v" to confirm your php version. 
+![Screenshot (193)](https://user-images.githubusercontent.com/105195327/205459017-75b8c788-b802-46d2-9aba-5be62e943f1a.png)  
+ 
+  
+  
+At this point, your LAMP stack is completely installed and fully operational.
+- [x] Linux (Ubuntu)
+- [x] Apache HTTP Server
+- [x] MySQL
+- [x] PHP 
+
+*** 
+*** 
+
+## **Step4**
+### CREATING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE 
+
+In this project, you will set up a domain called **projectlamp**, but you can replace this with any domain of your choice.
+*Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory.* 
+We will leave this configuration as is and will add our own directory next to the default one. 
+
+- Create the directory for projectlamp using ‘mkdir’ command as follows: "sudo mkdir /var/www/projectlamp" 
+- Assign ownership of the directory with your current system user: "sudo chown -R $USER:$USER /var/www/projectlamp" 
+- Create and open a new configuration file in Apache’s sites-available directory using your preferred command-line editor. Here, we’ll be using nano. 
+  sudo nano /etc/apache2/sites-available/projectlamp.conf
+
+![Screenshot (194)](https://user-images.githubusercontent.com/105195327/205459726-29685e7f-9c77-4830-9c57-d84d26eff96e.png)  
+ 
+  
+This will create a new blank file. Paste in the following bare-bones configuration 
+> <VirtualHost *:80>
+    ServerName projectlamp
+    ServerAlias www.projectlamp 
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/projectlamp
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+![Screenshot (195)](https://user-images.githubusercontent.com/105195327/205459887-93d353b8-1370-42d3-9288-2b0cc9204b69.png)  
+ 
+  
+ - To save the file, press ctrl + x, and yopu would be asked if you want to save, type **Y** for yes.  
+ 
+ ![Screenshot (196)](https://user-images.githubusercontent.com/105195327/205460008-5310f425-84f1-4c0f-8afa-0e4a753d3014.png)  
+  
+   
+ - Click enter at the name to write section to save as is. 
+ 
+  ![Screenshot (197)](https://user-images.githubusercontent.com/105195327/205460028-a0292d77-e66f-49d9-9ebc-c894c63f6a6e.png)  
+   
+    
+You can use the ls command to show the new file in the sites-available directory 
+> sudo ls /etc/apache2/sites-available  
+  
+You will see something like this;
+
+![Screenshot (198)](https://user-images.githubusercontent.com/105195327/205460189-31097b6c-afb4-47cb-9eff-7a1b45ef4e14.png)  
+ 
+  
+With this VirtualHost configuration, we’re telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory. 
+If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. *Adding the # character there will tell the program to skip processing the instructions on those lines.*
+You can now use a2ensite command to enable the new virtual host:
+> sudo a2ensite projectlamp  
+ 
+You might want to disable the default website that comes installed with Apache. This is required if you’re not using a custom domain name, because in this case Apache’s default configuration would overwrite your virtual host. To disable Apache’s default website use a2dissite command, type:
+> sudo a2dissite 000-default  
+ 
+ 
+To make sure your configuration file doesn’t contain syntax errors, run:
+> sudo apache2ctl configtest  
+ 
+
+Finally, reload Apache so these changes take effect:
+> sudo systemctl reload apache2  
+ 
+
+![Screenshot (200)](https://user-images.githubusercontent.com/105195327/205460837-d44ee35a-a346-4cbe-b29c-17bfaaf21850.png)  
+ 
+  
+  
+Your new website is now active, but the web root /var/www/projectlamp is still empty. 
+*Create an index.html file in that location so that we can test that the virtual host works as expected:* 
+
+sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+Now go to your browser and try to open your website URL using your public IP address. 
+
+If you see the text from ‘echo’ command you wrote to index.html file, then it means your Apache virtual host is working as expected.
+In the output you will see your server’s public hostname (DNS name) and public IP address. 
+ 
+You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
+
+  
+ 
+
+
+ 
 
