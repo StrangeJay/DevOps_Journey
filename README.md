@@ -140,4 +140,27 @@ Once again, we would be using the ubuntu package manager 'apt' to make the insta
  
   
   
+It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings 
+and lock down access to your database system. 
+Before running the script, you will set a password for the root user, using mysql_native_password as default authentication method. 
+We’re defining this user’s password as **mysqltrial**  
+- Exit the mysql shell with "exit" 
+
+![Screenshot (187)](https://user-images.githubusercontent.com/105195327/205439954-3be7bb68-5bc7-4fb4-bf23-1b9d6b984135.png)  
  
+  
+  
+- Start the interactive script by running: "sudo mysql_secure_installation"  
+- When promptem for root password, input the previously created password, which in this case is **mysqltrial**
+- You would receive a message asking you to validate password component  
+  *You can choose to validate or not, dependong on how secure you want your password to be. 
+  It checks the strength of a password, and allows users to set only passwords that are strong enough.  
+  If enabled, passwords which don’t match the specified criteria will be rejected by MySQL with an error. 
+  It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials. 
+  
+![Screenshot (188)](https://user-images.githubusercontent.com/105195327/205440336-c8e8b5e9-6b61-407c-8842-2c7ee29cbc24.png)  
+ 
+  
+ 
+
+
