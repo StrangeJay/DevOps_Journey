@@ -323,7 +323,8 @@ Now that you have a custom location to host your website’s files and folders, 
 
 
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
-> <?php
+> 
+<?php
 phpinfo(); 
  
 ![Screenshot (203)](https://user-images.githubusercontent.com/105195327/205462013-fe698daf-5b3f-42c6-a856-2cf87fa9712c.png)  
