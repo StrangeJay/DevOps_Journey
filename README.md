@@ -9,7 +9,7 @@
 ![Screenshot (167)](https://user-images.githubusercontent.com/105195327/205402536-d7ea64d6-4a20-4295-9739-7d31db590886.png)
 
 
-It would lead you to the EC2 dashboard page, when there, click on launch server. 
+It would lead you to the EC2 dashboard page, when there, click on launch instance. 
 ![Screenshot (168)](https://user-images.githubusercontent.com/105195327/205402731-aebac87d-5805-4bd7-8a0b-cc4dba3412b1.png)
 
 
@@ -63,5 +63,10 @@ of our security group rules, they all have the 0.0.0.0/0 source, allowing access
 
 ***
 ***
+
+## **Step2**
+### Installing Apache Server
+
+Using the public IP address from our previously created EC2 instance, we are going to use putty, to connect to the instance and install an Apache server on it.
 
 
