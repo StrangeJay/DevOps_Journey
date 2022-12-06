@@ -157,7 +157,7 @@ We’re defining this user’s password as **mysqltrial**
 - Start the interactive script by running: "sudo mysql_secure_installation"  
 - When promptem for root password, input the previously created password, which in this case is **mysqltrial**
 - You would receive a message asking you to validate password component  
-  *You can choose to validate or not, dependong on how secure you want your password to be. 
+  *You can choose to validate or not, depending on how secure you want your password to be. 
   It checks the strength of a password, and allows users to set only passwords that are strong enough.  
   If enabled, passwords which don’t match the specified criteria will be rejected by MySQL with an error. 
   It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials. 
